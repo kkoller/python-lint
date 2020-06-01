@@ -1,0 +1,18 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: "pylama-build" 
+spec:
+  runPolicy: "Serial" 
+  source: 
+    git:
+      uri: "https://github.com/kkoller/python-lint"
+  strategy: 
+    sourceStrategy:
+      from:
+        kind: "DockerImage"
+        name: "python:3.8.0-alpine3.10"
+  output: 
+    to:
+      kind: "ImageStreamTag"
+      name: "pylama:latest"

@@ -1,3 +1,3 @@
-FROM python:3.8.0-alpine3.10
+FROM registry.access.redhat.com/ubi8/python-38
 
 RUN pip install pylama
